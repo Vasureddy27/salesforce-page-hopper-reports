@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { HelpCircle } from "lucide-react";
 
 type NavItem = {
   title: string;
@@ -48,11 +49,18 @@ const Navbar = ({ className }: NavbarProps) => {
         </nav>
 
         <div className="flex items-center space-x-2">
-          <Button variant="outline" size="sm">
-            Help
+          <Button variant="outline" size="sm" asChild>
+            <Link to="/help">
+              <HelpCircle className="w-4 h-4 mr-1" />
+              Help
+            </Link>
           </Button>
-          <Button size="sm" className="bg-salesforce-sky hover:bg-salesforce-blue transition-colors">
-            Login
+          <Button 
+            size="sm" 
+            className="bg-salesforce-sky hover:bg-salesforce-blue transition-colors"
+            asChild
+          >
+            <Link to="/login">Login</Link>
           </Button>
         </div>
       </div>

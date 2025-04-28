@@ -9,6 +9,8 @@ import ReportGenerator from "./pages/ReportGenerator";
 import ReportTemplates from "./pages/ReportTemplates";
 import ReportHistory from "./pages/ReportHistory";
 import ReportPreview from "./pages/ReportPreview";
+import Help from "./pages/Help";
+import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +27,8 @@ const App = () => (
           <Route path="/report-templates" element={<ReportTemplates />} />
           <Route path="/report-history" element={<ReportHistory />} />
           <Route path="/report-preview/:id" element={<ReportPreview />} />
+          <Route path="/help" element={<Help />} />
+          <Route path="/login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
