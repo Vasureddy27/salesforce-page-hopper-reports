@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
@@ -110,6 +109,14 @@ const ReportHistory = () => {
     }
   };
 
+  const handleDownload = (reportId: string) => {
+    console.log(`Downloading report ${reportId}`);
+  };
+
+  const handleShare = (reportId: string) => {
+    console.log(`Sharing report ${reportId}`);
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -208,9 +215,9 @@ const ReportHistory = () => {
                           <div className="flex justify-end gap-2">
                             <Button 
                               variant="ghost" 
-                              size="sm" 
+                              size="sm"
                               asChild
-                              className="h-8 w-8 p-0 text-muted-foreground"
+                              className="h-8 w-8 p-0 text-muted-foreground hover:text-salesforce-sky hover:bg-salesforce-sky/10"
                             >
                               <Link to={`/report-preview/${report.id}`}>
                                 <span className="sr-only">View</span>
@@ -233,7 +240,8 @@ const ReportHistory = () => {
                             <Button 
                               variant="ghost" 
                               size="sm"
-                              className="h-8 w-8 p-0 text-muted-foreground"
+                              className="h-8 w-8 p-0 text-muted-foreground hover:text-salesforce-green hover:bg-salesforce-green/10"
+                              onClick={() => handleDownload(report.id)}
                             >
                               <span className="sr-only">Download</span>
                               <svg
@@ -255,9 +263,10 @@ const ReportHistory = () => {
                             <Button 
                               variant="ghost" 
                               size="sm"
-                              className="h-8 w-8 p-0 text-muted-foreground"
+                              className="h-8 w-8 p-0 text-muted-foreground hover:text-salesforce-indigo hover:bg-salesforce-indigo/10"
+                              onClick={() => handleShare(report.id)}
                             >
-                              <span className="sr-only">More</span>
+                              <span className="sr-only">Share</span>
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="16"
@@ -269,9 +278,11 @@ const ReportHistory = () => {
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
                               >
-                                <circle cx="12" cy="12" r="1" />
-                                <circle cx="12" cy="5" r="1" />
-                                <circle cx="12" cy="19" r="1" />
+                                <circle cx="18" cy="5" r="3"/>
+                                <circle cx="6" cy="12" r="3"/>
+                                <circle cx="18" cy="19" r="3"/>
+                                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
                               </svg>
                             </Button>
                           </div>
